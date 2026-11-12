@@ -18,7 +18,6 @@ mealmate/                   website demo MealMate (tugas kuliah)
 assets/css/style.css        tampilan (warna dan ukuran huruf ada di bagian "Token")
 assets/js/main.js           menu HP, penanda menu aktif, tahun di footer
 assets/img/                 foto, favicon, screenshot proyek
-assets/files/               file CV (PDF)
 ```
 
 ## Mengubah isi

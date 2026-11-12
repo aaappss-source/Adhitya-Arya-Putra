@@ -371,14 +371,6 @@ a {
   color: var(--kabut);
 }
 
-.subhead {
-  margin: 4.5rem 0 2rem;
-  font-size: var(--t-lg);
-  font-weight: 700;
-  font-stretch: 80%;
-  line-height: 1.1;
-}
-
 .prose {
   max-width: 62ch;
   font-size: 1.125rem;
@@ -477,76 +469,7 @@ a {
   max-width: 40ch;
 }
 
-/* ---------- 9. Pengalaman dan pendidikan ---------- */
-.timeline {
-  display: grid;
-  gap: 2.75rem;
-  list-style: none;
-}
-
-.timeline--compact {
-  gap: 1.75rem;
-}
-
-.timeline__item {
-  display: grid;
-  grid-template-columns: 13rem minmax(0, 1fr);
-  gap: 0.5rem 2rem;
-}
-
-.timeline__date {
-  padding-top: 0.2rem;
-  font-size: 0.9375rem;
-  color: var(--kabut);
-  font-variant-numeric: tabular-nums;
-}
-
-.timeline__role {
-  font-size: var(--t-md);
-  font-weight: 700;
-  font-stretch: 88%;
-  line-height: 1.3;
-}
-
-.timeline__place {
-  color: var(--kabut);
-}
-
-.timeline__points {
-  display: grid;
-  list-style: disc;
-  gap: 0.4rem;
-  margin-top: 0.9rem;
-  padding-left: 1.1rem;
-  max-width: 62ch;
-}
-
-.timeline__points li::marker {
-  color: #5c6690;
-}
-
-/* ---------- 10. Keahlian ---------- */
-.skills {
-  display: grid;
-}
-
-.skills__group {
-  display: grid;
-  grid-template-columns: 12.5rem minmax(0, 1fr);
-  gap: 0.25rem 2rem;
-  padding-block: 1.1rem;
-  border-top: 1px solid var(--garis);
-}
-
-.skills__group:last-child {
-  border-bottom: 1px solid var(--garis);
-}
-
-.skills dt {
-  color: var(--kabut);
-}
-
-/* ---------- 11. Kontak ---------- */
+/* ---------- 9. Kontak ---------- */
 .contact {
   padding-block: clamp(5rem, 12vw, 9rem);
   border-top: 1px solid var(--garis);
@@ -592,7 +515,7 @@ a {
   list-style: none;
 }
 
-/* ---------- 12. Footer ---------- */
+/* ---------- 10. Footer ---------- */
 .site-footer {
   padding-block: 2rem;
   border-top: 1px solid var(--garis);
@@ -706,11 +629,6 @@ a {
   }
 
   .services {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .timeline__item,
-  .skills__group {
     grid-template-columns: minmax(0, 1fr);
   }
 
