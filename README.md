@@ -22,7 +22,9 @@ assets/img/                 foto, favicon, screenshot proyek
 
 ## Mengubah isi
 
-- Proyek ada di bagian `<!-- PROYEK -->` di `index.html`. Untuk menambah proyek, salin satu blok `<article class="project">`.
+- Peragaan di bagian atas (chat masuk jadi rekap) ada di `<figure class="demo">` di `index.html`. Urutan munculnya diatur lewat `data-step` (1, 2, 3, ...), dan diputar oleh `assets/js/main.js`.
+
+- Proyek ada di bagian `<!-- PROYEK -->` di `index.html`. Proyek utama memakai `<article class="feature">`, proyek lain `<article class="mini">` (tinggal salin bloknya).
 - Screenshot proyek disimpan di `assets/img/` dengan ukuran sekitar 1600x1000.
 - Link demo atau kode bisa ditambah di bawah daftar Peran/Teknologi:
   `<p class="project__links"><a class="link" href="...">Lihat demo</a></p>`

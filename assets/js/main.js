@@ -1,5 +1,5 @@
 // Portofolio Adhitya Arya Putra
-// Isi file: menu HP, garis header saat discroll, penanda menu aktif, tahun di footer.
+// Isi file: menu HP, garis header saat discroll, penanda menu aktif, peragaan chat ke rekap di hero, tahun di footer.
 
 (function () {
   "use strict";
@@ -72,6 +72,36 @@
     sections.forEach(function (section) {
       observer.observe(section);
     });
+  }
+
+  // ---------- Peragaan di hero: chat masuk satu per satu lalu tercatat di rekap ----------
+  // Elemen [data-step="n"] muncul berurutan. Diputar sekali saat halaman dibuka; tombol "Putar lagi"
+  // muncul setelah selesai. Dengan "kurangi gerakan", semua langsung tampil dan tidak diputar.
+  const demo = document.querySelector("[data-demo]");
+  if (demo) {
+    const steps = Array.from(demo.querySelectorAll("[data-step]"));
+    const replay = demo.querySelector("[data-demo-replay]");
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const STEP_MS = 750;
+    const last = Math.max.apply(null, steps.map(function (el) { return Number(el.dataset.step); }));
+    let timers = [];
+
+    const play = function () {
+      timers.forEach(clearTimeout);
+      timers = [];
+      steps.forEach(function (el) { el.classList.remove("is-in"); });
+      demo.classList.add("is-playing");
+      if (replay) replay.hidden = true;
+      for (let n = 1; n <= last; n++) {
+        timers.push(setTimeout(function () {
+          steps.forEach(function (el) { if (Number(el.dataset.step) === n) el.classList.add("is-in"); });
+        }, 350 + (n - 1) * STEP_MS));
+      }
+      timers.push(setTimeout(function () { if (replay) replay.hidden = false; }, 350 + last * STEP_MS));
+    };
+
+    if (!reduce.matches) play();
+    if (replay) replay.addEventListener("click", play);
   }
 
   // ---------- Tahun di footer ----------

@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Jasa Website dan Bot WhatsApp di Depok | Adhitya Arya Putra</title>
-  <meta name="description" content="Jasa pembuatan website, bot WhatsApp, dan otomatisasi admin untuk usaha. Dikerjakan oleh Adhitya Arya Putra di Depok.">
+  <meta name="description" content="Jasa pembuatan website, bot WhatsApp, dan otomatisasi admin untuk usaha kecil. Dikerjakan oleh Adhitya Arya Putra di Depok.">
   <meta name="theme-color" content="#11172B">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Jasa Website dan Bot WhatsApp | Adhitya Arya Putra">
-  <meta property="og:description" content="Website, bot WhatsApp, dan otomatisasi untuk pekerjaan admin yang masih dikerjakan manual.">
+  <meta property="og:description" content="Pesanan dari chat langsung tercatat sendiri. Website, bot WhatsApp, dan otomatisasi admin untuk usaha kecil.">
   <meta property="og:url" content="https://aaappss-source.github.io/Adhitya-Arya-Putra/">
   <meta property="og:image" content="https://aaappss-source.github.io/Adhitya-Arya-Putra/assets/img/adhitya-900.jpg">
 
@@ -49,203 +49,238 @@
 
   <main id="konten">
 
-    <!-- ============ HERO ============ -->
+    <!-- ============ HERO ============
+         Peragaan jasa: chat pesanan yang masuk tercatat sendiri ke rekap.
+         Isi lengkap sudah ada di HTML (tampil utuh tanpa JavaScript); main.js memutarnya sekali saat halaman dibuka. -->
     <section class="hero" id="top" aria-labelledby="hero-title">
       <div class="wrap hero__grid">
         <div class="hero__text">
           <h1 class="hero__title" id="hero-title">
-            <span class="hero__line">Website dan</span>
-            <span class="hero__line">bot WhatsApp</span>
-            <span class="hero__line">untuk usaha Anda</span>
+            <span>Pesanan dari chat,</span>
+            <span>langsung tercatat</span>
+            <span>sendiri.</span>
           </h1>
           <p class="hero__lead">
-            Saya Adhitya Arya Putra dari Depok. Saya membuat website, bot WhatsApp, dan otomatisasi
-            untuk pekerjaan admin yang masih dikerjakan manual, seperti mencatat pesanan dan
-            merekap laporan stok.
+            Saya Adhitya, dari Depok. Saya membuat website, bot WhatsApp, dan otomatisasi admin
+            untuk usaha kecil, supaya pekerjaan seperti merekap pesanan tidak perlu lagi diketik ulang
+            satu per satu.
           </p>
           <div class="hero__actions">
             <a class="btn btn--primary" href="https://wa.me/62895396797368" target="_blank" rel="noopener">Chat WhatsApp</a>
-            <a class="btn btn--outline" href="#layanan">Lihat layanan</a>
+            <a class="btn btn--outline" href="#proyek">Lihat proyek</a>
           </div>
         </div>
 
-        <figure class="hero__photo">
-          <picture>
-            <source type="image/webp" srcset="assets/img/adhitya-600.webp 600w, assets/img/adhitya-900.webp 900w" sizes="(min-width: 960px) 34vw, 80vw">
-            <img src="assets/img/adhitya-900.jpg"
-                 srcset="assets/img/adhitya-600.jpg 600w, assets/img/adhitya-900.jpg 900w"
-                 sizes="(min-width: 960px) 34vw, 80vw"
-                 width="900" height="1350"
-                 alt="Foto Adhitya Arya Putra">
-          </picture>
+        <figure class="demo" data-demo>
+          <div class="inbox" role="group" aria-label="Contoh chat pesanan yang masuk">
+            <div class="inbox__head">
+              <span class="inbox__logo" aria-hidden="true">KS</span>
+              <div>
+                <p class="inbox__name">Katering Bu Sari</p>
+                <p class="inbox__state">Bot pesanan aktif</p>
+              </div>
+            </div>
+            <ul class="inbox__list">
+              <li class="chat" data-step="1">
+                <span class="chat__avatar" style="--h:12" aria-hidden="true">R</span>
+                <div class="chat__main">
+                  <p class="chat__who">Bu Rina <time>08.12</time></p>
+                  <p class="chat__msg">Kak, pesan nasi box ayam bakar 20 ya, buat Jumat siang</p>
+                  <p class="chat__done" data-step="2">Dibalas otomatis, sudah tercatat</p>
+                </div>
+              </li>
+              <li class="chat" data-step="3">
+                <span class="chat__avatar" style="--h:205" aria-hidden="true">D</span>
+                <div class="chat__main">
+                  <p class="chat__who">Pak Dimas <time>08.15</time></p>
+                  <p class="chat__msg">Snack box isi 3, 50 kotak. Sabtu pagi bisa?</p>
+                  <p class="chat__done" data-step="4">Dibalas otomatis, sudah tercatat</p>
+                </div>
+              </li>
+              <li class="chat" data-step="5">
+                <span class="chat__avatar" style="--h:150" aria-hidden="true">S</span>
+                <div class="chat__main">
+                  <p class="chat__who">Sinta <time>08.21</time></p>
+                  <p class="chat__msg">Es teh manis 20 gelas, antar ke kantor jam 11 ya</p>
+                  <p class="chat__done" data-step="6">Dibalas otomatis, sudah tercatat</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <p class="demo__link" aria-hidden="true">
+            <svg viewBox="0 0 16 36" width="16" height="36"><path d="M8 2v28M2 24l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            tercatat otomatis
+          </p>
+
+          <div class="sheet" role="group" aria-label="Contoh rekap pesanan di Google Sheets">
+            <div class="sheet__head">
+              <p>Rekap pesanan</p>
+              <span>Google Sheets</span>
+            </div>
+            <table class="sheet__table">
+              <thead>
+                <tr><th scope="col">Pelanggan</th><th scope="col">Pesanan</th><th scope="col" class="num">Jml</th><th scope="col">Kirim</th></tr>
+              </thead>
+              <tbody>
+                <tr data-step="2"><td>Bu Rina</td><td>Nasi box ayam bakar</td><td class="num">20</td><td>Jumat</td></tr>
+                <tr data-step="4"><td>Pak Dimas</td><td>Snack box isi 3</td><td class="num">50</td><td>Sabtu</td></tr>
+                <tr data-step="6"><td>Sinta</td><td>Es teh manis</td><td class="num">20</td><td>Hari ini</td></tr>
+              </tbody>
+            </table>
+            <p class="sheet__foot" data-step="6">3 pesanan baru, tanpa diketik ulang</p>
+          </div>
+
+          <figcaption class="demo__caption">
+            Contoh bot WhatsApp yang bisa saya buatkan.
+            <button class="demo__replay" type="button" data-demo-replay hidden>Putar lagi</button>
+          </figcaption>
         </figure>
       </div>
     </section>
 
     <!-- ============ LAYANAN ============ -->
     <section class="section" id="layanan" aria-labelledby="layanan-title">
-      <div class="wrap section__grid">
-        <h2 class="section__title" id="layanan-title">Layanan</h2>
-        <div class="section__body">
-          <p class="section__intro">Pekerjaan yang bisa saya bantu untuk usaha Anda.</p>
-          <ul class="services">
-            <li class="service">
-              <h3 class="service__title">Pembuatan website</h3>
-              <p>Website profil usaha, landing page, atau katalog produk, supaya usaha Anda mudah ditemukan dan dipercaya calon pembeli. Tampil rapi di HP.</p>
-            </li>
-            <li class="service">
-              <h3 class="service__title">Aplikasi web</h3>
-              <p>Aplikasi sederhana untuk kebutuhan internal, misalnya pencatatan stok atau pembagian tugas tim, supaya data tidak tercecer di chat dan kertas.</p>
-            </li>
-            <li class="service">
-              <h3 class="service__title">Bot WhatsApp</h3>
-              <p>Membalas pertanyaan yang sering masuk, mencatat pesanan, dan mengirim pengingat secara otomatis, termasuk di luar jam kerja.</p>
-            </li>
-            <li class="service">
-              <h3 class="service__title">Otomatisasi administrasi</h3>
-              <p>Rekap data, laporan stok, dan dokumen rutin di Excel atau Google Sheets berjalan otomatis, jadi Anda tidak perlu lagi menyalin data satu per satu.</p>
-            </li>
-          </ul>
-        </div>
+      <div class="wrap">
+        <h2 class="h2" id="layanan-title">Yang bisa saya bantu</h2>
+        <ul class="services">
+          <li class="service">
+            <h3 class="service__title">Website usaha</h3>
+            <p>Profil usaha, landing page, atau katalog produk, supaya usaha Anda mudah ditemukan dan dipercaya calon pembeli. Tampil rapi di HP.</p>
+          </li>
+          <li class="service">
+            <h3 class="service__title">Bot WhatsApp</h3>
+            <p>Membalas pertanyaan yang sering masuk, mencatat pesanan, dan mengirim pengingat secara otomatis, termasuk di luar jam kerja.</p>
+          </li>
+          <li class="service">
+            <h3 class="service__title">Otomatisasi admin</h3>
+            <p>Rekap data, laporan stok, dan dokumen rutin di Excel atau Google Sheets berjalan otomatis, jadi tidak perlu lagi menyalin data satu per satu.</p>
+          </li>
+          <li class="service">
+            <h3 class="service__title">Aplikasi web</h3>
+            <p>Aplikasi sederhana untuk kebutuhan internal, misalnya pencatatan stok atau jadwal kerja staf, supaya data tidak tercecer di chat dan kertas.</p>
+          </li>
+        </ul>
       </div>
     </section>
 
-    <!-- ============ PROYEK ============ -->
-    <!-- Untuk menambah proyek: salin satu blok <article class="project"> lalu ganti isinya. -->
-    <section class="section" id="proyek" aria-labelledby="proyek-title">
-      <div class="wrap section__grid">
-        <h2 class="section__title" id="proyek-title">Proyek</h2>
-        <div class="section__body projects">
+    <!-- ============ PROYEK ============
+         Proyek utama tampil besar (.feature), proyek lain dua kolom (.mini). -->
+    <section class="section section--band" id="proyek" aria-labelledby="proyek-title">
+      <div class="wrap">
+        <h2 class="h2" id="proyek-title">Proyek</h2>
 
-          <article class="project">
-            <div class="project__media">
-              <img src="assets/img/proyek-pengelola-tugas.webp" alt="Tiga layar aplikasi Pengelola Tugas: daftar tugas, kalender, dan grafik" width="1600" height="1000" loading="lazy">
-            </div>
-            <div class="project__info">
-              <h3 class="project__title">Pengelola Tugas</h3>
-              <p class="project__kind">Aplikasi jadwal dan checklist tugas</p>
-              <p>
+        <article class="feature">
+          <img class="feature__img" src="assets/img/proyek-pengelola-tugas.webp" alt="Tiga layar aplikasi Pengelola Tugas: daftar tugas, kalender, dan grafik" width="1600" height="1000" loading="lazy">
+          <div class="feature__body">
+            <div>
+              <h3 class="feature__title">Pengelola Tugas</h3>
+              <p class="feature__kind">Aplikasi jadwal dan checklist tugas, dipakai sungguhan oleh teman-teman saya</p>
+              <p class="feature__desc">
                 Mencatat tugas dan jadwal harian, lengkap dengan kalender, hitung mundur deadline, dan
-                grafik tugas yang sudah selesai. Bisa dipasang di HP seperti aplikasi biasa dan tetap
-                bisa dipakai saat sinyal hilang. Semua datanya tersimpan rapi di Google Spreadsheet.
+                grafik tugas yang sudah selesai. Bisa dipasang di HP seperti aplikasi biasa dan tetap bisa
+                dipakai saat sinyal hilang. Semua datanya tersimpan rapi di Google Spreadsheet.
               </p>
-              <dl class="project__meta">
-                <div><dt>Cocok untuk</dt><dd>Usaha yang ingin staf mencatat pekerjaannya sendiri, sementara pemilik bisa melihat semuanya di satu Google Spreadsheet.</dd></div>
-                <div><dt>Fitur</dt><dd>Kalender, deadline, centang selesai, grafik, bisa dipakai tanpa internet, bisa dipasang di HP.</dd></div>
-                <div><dt>Catatan</dt><dd>Sudah dipakai sungguhan oleh teman-teman saya. Tombol di bawah membuka versi coba berisi contoh tugas, jadi tidak perlu daftar.</dd></div>
-              </dl>
-              <p class="project__links">
-                <a class="link" href="https://aaappss-source.github.io/pengelola-tugas/?coba">Coba aplikasinya</a>
-              </p>
+              <a class="btn btn--outline" href="https://aaappss-source.github.io/pengelola-tugas/?coba">Coba aplikasinya</a>
+              <p class="feature__hint">Terbuka dengan contoh tugas, tidak perlu daftar.</p>
             </div>
+            <dl class="facts">
+              <div><dt>Cocok untuk</dt><dd>Usaha yang ingin staf mencatat pekerjaannya sendiri, sementara pemilik bisa melihat semuanya di satu Google Spreadsheet.</dd></div>
+              <div><dt>Fitur</dt><dd>Kalender, deadline, centang selesai, grafik, bisa dipakai tanpa internet, bisa dipasang di HP.</dd></div>
+            </dl>
+          </div>
+        </article>
+
+        <div class="minor">
+          <article class="mini">
+            <img class="mini__img" src="assets/img/proyek-nexus-topup.webp" alt="Halaman beranda Nexus TopUp: banner top up Mobile Legends dan daftar game" width="1600" height="1000" loading="lazy">
+            <h3 class="mini__title">Nexus TopUp</h3>
+            <p class="mini__kind">Toko online top up game</p>
+            <p>Pembeli memilih game, mengisi ID akun, membayar, lalu bisa mengecek status pesanannya sendiri tanpa harus chat admin.</p>
+            <p class="mini__fit">Cocok untuk usaha produk digital, seperti voucher game, pulsa, atau token listrik.</p>
+            <p class="mini__note">Tugas kuliah. Ini contoh website, jadi pembayarannya tidak sungguhan.</p>
+            <a class="link" href="nexus-topup/">Lihat websitenya</a>
           </article>
 
-          <article class="project">
-            <div class="project__media">
-              <img src="assets/img/proyek-nexus-topup.webp" alt="Halaman beranda Nexus TopUp: banner top up Mobile Legends dan daftar game" width="1600" height="1000" loading="lazy">
-            </div>
-            <div class="project__info">
-              <h3 class="project__title">Nexus TopUp</h3>
-              <p class="project__kind">Toko online top up game</p>
-              <p>
-                Pembeli memilih game, mengisi ID akun, memilih nominal dan cara bayar, lalu bisa
-                mengecek status pesanannya sendiri. Admin tidak perlu lagi menjawab pertanyaan
-                "pesanan saya sudah masuk belum?" satu per satu.
-              </p>
-              <dl class="project__meta">
-                <div><dt>Cocok untuk</dt><dd>Usaha yang menjual produk digital, seperti voucher game, pulsa, atau token listrik.</dd></div>
-                <div><dt>Fitur</dt><dd>Pilihan nominal, 5 metode bayar (QRIS dan e-wallet), cek status pesanan.</dd></div>
-                <div><dt>Catatan</dt><dd>Proyek tugas kuliah. Ini contoh website, jadi pembayarannya tidak sungguhan.</dd></div>
-              </dl>
-              <p class="project__links">
-                <a class="link" href="nexus-topup/">Lihat websitenya</a>
-              </p>
-            </div>
+          <article class="mini">
+            <img class="mini__img" src="assets/img/proyek-mealmate.webp" alt="Halaman beranda toko MealMate dengan foto tas bekal warna hitam" width="1600" height="1000" loading="lazy">
+            <h3 class="mini__title">MealMate</h3>
+            <p class="mini__kind">Toko online produk fisik</p>
+            <p>Pembeli memilih ukuran dan warna, memasukkan ke keranjang, mengisi alamat, lalu membayar lewat QRIS atau Virtual Account.</p>
+            <p class="mini__fit">Cocok untuk usaha yang menjual produk dengan pilihan ukuran atau warna, seperti fashion atau tas.</p>
+            <p class="mini__note">Tugas kuliah. Ini contoh website, jadi pembayarannya tidak sungguhan.</p>
+            <a class="link" href="mealmate/">Lihat websitenya</a>
           </article>
-
-          <article class="project">
-            <div class="project__media">
-              <img src="assets/img/proyek-mealmate.webp" alt="Halaman beranda toko MealMate dengan foto tas bekal warna hitam" width="1600" height="1000" loading="lazy">
-            </div>
-            <div class="project__info">
-              <h3 class="project__title">MealMate</h3>
-              <p class="project__kind">Toko online produk fisik</p>
-              <p>
-                Pembeli bisa belanja sendiri dari awal sampai bayar: memilih ukuran dan warna,
-                memasukkan ke keranjang, mengisi alamat, lalu membayar lewat QRIS atau Virtual Account.
-                Tidak perlu tanya-tanya lewat chat dulu.
-              </p>
-              <dl class="project__meta">
-                <div><dt>Cocok untuk</dt><dd>Usaha yang menjual produk dengan pilihan ukuran atau warna, seperti fashion, tas, atau perlengkapan rumah.</dd></div>
-                <div><dt>Fitur</dt><dd>Katalog produk, keranjang, ongkos kirim, pembayaran QRIS dan Virtual Account, FAQ.</dd></div>
-                <div><dt>Catatan</dt><dd>Proyek tugas kuliah. Ini contoh website, jadi pembayarannya tidak sungguhan.</dd></div>
-              </dl>
-              <p class="project__links">
-                <a class="link" href="mealmate/">Lihat websitenya</a>
-              </p>
-            </div>
-          </article>
-
         </div>
       </div>
     </section>
 
     <!-- ============ CARA KERJA ============ -->
     <section class="section" id="cara-kerja" aria-labelledby="cara-kerja-title">
-      <div class="wrap section__grid">
-        <h2 class="section__title" id="cara-kerja-title">Cara kerja</h2>
-        <div class="section__body">
-          <ol class="steps">
-            <li class="step">
-              <h3 class="step__title">Ceritakan kebutuhan Anda</h3>
-              <p>Kirim pesan lewat WhatsApp: usaha Anda apa, dan pekerjaan apa yang ingin dibuat lebih mudah.</p>
-            </li>
-            <li class="step">
-              <h3 class="step__title">Terima penawaran</h3>
-              <p>Saya kirim rincian pekerjaan, biaya, dan perkiraan waktu. Pekerjaan baru dimulai setelah Anda setuju.</p>
-            </li>
-            <li class="step">
-              <h3 class="step__title">Pengerjaan</h3>
-              <p>Anda bisa melihat hasil sementara selama dikerjakan, jadi bagian yang kurang pas bisa dikoreksi lebih awal.</p>
-            </li>
-            <li class="step">
-              <h3 class="step__title">Revisi</h3>
-              <p>Sebelum serah terima, Anda mencoba hasilnya dan menyampaikan bagian yang perlu diperbaiki.</p>
-            </li>
-            <li class="step">
-              <h3 class="step__title">Serah terima</h3>
-              <p>Website atau otomatisasi siap dipakai, lengkap dengan panduan singkat cara memakainya.</p>
-            </li>
-          </ol>
-        </div>
+      <div class="wrap">
+        <h2 class="h2" id="cara-kerja-title">Cara kerja</h2>
+        <ol class="steps">
+          <li class="step">
+            <h3 class="step__title">Ceritakan kebutuhan</h3>
+            <p>Kirim pesan lewat WhatsApp: usaha Anda apa, dan pekerjaan apa yang ingin dibuat lebih mudah.</p>
+          </li>
+          <li class="step">
+            <h3 class="step__title">Terima penawaran</h3>
+            <p>Saya kirim rincian pekerjaan, biaya, dan perkiraan waktu. Pekerjaan dimulai setelah Anda setuju.</p>
+          </li>
+          <li class="step">
+            <h3 class="step__title">Pengerjaan</h3>
+            <p>Anda bisa melihat hasil sementara, jadi bagian yang kurang pas bisa dikoreksi lebih awal.</p>
+          </li>
+          <li class="step">
+            <h3 class="step__title">Revisi</h3>
+            <p>Sebelum serah terima, Anda mencoba hasilnya dan menyampaikan bagian yang perlu diperbaiki.</p>
+          </li>
+          <li class="step">
+            <h3 class="step__title">Serah terima</h3>
+            <p>Siap dipakai, lengkap dengan panduan singkat cara memakainya.</p>
+          </li>
+        </ol>
       </div>
     </section>
 
     <!-- ============ TENTANG ============ -->
-    <section class="section" id="tentang" aria-labelledby="tentang-title">
-      <div class="wrap section__grid">
-        <h2 class="section__title" id="tentang-title">Tentang</h2>
-        <div class="section__body prose">
-          <p>
-            Saya lulusan SMK jurusan Teknik Komputer Jaringan dan sekarang kuliah S1 Manajemen
-            di Universitas Nusa Mandiri. Lebih dari dua tahun saya bekerja di bagian purchasing
-            dan inventory, mengurus pembelian lebih dari 100 item bahan baku F&amp;B dan menyusun
-            laporan stok setiap minggu dan bulan.
-          </p>
-          <p>
-            Dari situ saya melihat sendiri berapa banyak waktu yang habis untuk rekap data dan
-            dokumen rutin. Sekarang saya fokus membangun website dan otomatisasi berbasis AI,
-            supaya pekerjaan seperti itu bisa selesai lebih cepat dan lebih rapi.
-          </p>
+    <section class="section section--band" id="tentang" aria-labelledby="tentang-title">
+      <div class="wrap about">
+        <figure class="about__photo">
+          <picture>
+            <source type="image/webp" srcset="assets/img/adhitya-600.webp 600w, assets/img/adhitya-900.webp 900w" sizes="(min-width: 860px) 30vw, 70vw">
+            <img src="assets/img/adhitya-900.jpg"
+                 srcset="assets/img/adhitya-600.jpg 600w, assets/img/adhitya-900.jpg 900w"
+                 sizes="(min-width: 860px) 30vw, 70vw"
+                 width="900" height="1350" loading="lazy"
+                 alt="Foto Adhitya Arya Putra">
+          </picture>
+        </figure>
+        <div class="about__text">
+          <h2 class="h2" id="tentang-title">Tentang saya</h2>
+          <div class="prose">
+            <p>
+              Saya lulusan SMK jurusan Teknik Komputer Jaringan dan sekarang kuliah S1 Manajemen
+              di Universitas Nusa Mandiri. Lebih dari dua tahun saya bekerja di bagian purchasing
+              dan inventory, mengurus pembelian lebih dari 100 item bahan baku F&amp;B dan menyusun
+              laporan stok setiap minggu dan bulan.
+            </p>
+            <p>
+              Dari situ saya melihat sendiri berapa banyak waktu yang habis untuk rekap data dan
+              dokumen rutin. Sekarang saya fokus membangun website dan otomatisasi berbasis AI,
+              supaya pekerjaan seperti itu bisa selesai lebih cepat dan lebih rapi.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ============ FAQ ============ -->
     <section class="section" id="faq" aria-labelledby="faq-title">
-      <div class="wrap section__grid">
-        <h2 class="section__title" id="faq-title">Pertanyaan umum</h2>
-        <div class="section__body faq">
+      <div class="wrap">
+        <h2 class="h2" id="faq-title">Pertanyaan umum</h2>
+        <div class="faq">
           <details class="faq__item">
             <summary>Berapa biayanya?</summary>
             <p>Tergantung kebutuhan dan besar kecilnya pekerjaan. Setelah Anda menceritakan kebutuhan, saya kirim penawaran dengan rincian biaya sebelum pekerjaan dimulai.</p>
@@ -283,7 +318,7 @@
 
   <footer class="site-footer">
     <div class="wrap">
-      <p>&copy; <span data-year>2026</span> Adhitya Arya Putra</p>
+      <p>&copy; <span data-year>2026</span> Adhitya Arya Putra, Depok</p>
     </div>
   </footer>
 </body>
