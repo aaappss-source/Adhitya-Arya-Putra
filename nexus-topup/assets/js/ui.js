@@ -140,7 +140,7 @@
         <div class="site-footer__cols">
           <div class="site-footer__brand">
             ${logoHTML()}
-            <p>NEXUS TOPUP adalah platform isi ulang mata uang game terpercaya di Indonesia. Transaksi otomatis 24 jam dengan harga ramah kantong.</p>
+            <p>NEXUS TOPUP adalah konsep platform isi ulang mata uang game dengan transaksi otomatis 24 jam dan harga ramah kantong.</p>
             <div class="pay-badges">${PAYMENTS.map(payBadge).join("")}</div>
           </div>
           <div>

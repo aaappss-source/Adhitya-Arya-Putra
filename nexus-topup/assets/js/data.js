@@ -64,7 +64,7 @@
       publisher: "Level Infinite",
       image: "assets/img/pubg-mobile.jpg",
       colors: ["#EAB308", "#B45309"],
-      tag: "UC RESMI",
+      tag: "TOP UP UC",
       fields: [{ id: "playerId", label: "Player ID", placeholder: "Masukkan Player ID", min: 6, max: 12 }],
       format: (v) => v.playerId,
       hint: "Buka profil karakter. Player ID (Character ID) tertera di bawah nama karakter kamu.",
@@ -117,9 +117,9 @@
   /* ---------- Konten beranda ---------- */
   const SLIDES = [
     {
-      badge: "🏆 Top Up Resmi Moonton",
+      badge: "🏆 Paling Laris",
       title: "DIAMOND MOBILE LEGENDS\nMASUK INSTAN",
-      desc: "Top up Diamond Mobile Legends resmi cukup dengan User ID & Zone ID. Proses otomatis 1-3 detik langsung masuk ke akun game kamu.",
+      desc: "Top up Diamond Mobile Legends cukup dengan User ID & Zone ID. Proses otomatis 1-3 detik langsung masuk ke akun game kamu.",
       game: "ml",
       buttons: [
         { label: "Top Up MLBB Sekarang", game: "ml", primary: true },
@@ -127,9 +127,9 @@
       ],
     },
     {
-      badge: "✨ Resmi HoYoverse",
+      badge: "✨ Cukup Pakai UID",
       title: "GENESIS CRYSTAL\nGENSHIN IMPACT",
-      desc: "Isi Genesis Crystal hanya dengan UID, tanpa perlu login akun. 100% legal dan aman, dikirim otomatis 24 jam.",
+      desc: "Isi Genesis Crystal hanya dengan UID, tanpa perlu login dan tanpa memberikan kata sandi akun. Dikirim otomatis 24 jam.",
       game: "genshin",
       buttons: [
         { label: "Top Up Genshin", game: "genshin", primary: true },
@@ -150,7 +150,7 @@
 
   const FEATURES = [
     { icon: "⚡", title: "Proses 1-3 Detik", desc: "Sistem otomatis canggih 24 jam nonstop" },
-    { icon: "🛡️", title: "100% Legal & Aman", desc: "Jaminan resmi dari publisher terpercaya" },
+    { icon: "🔒", title: "Tanpa Kata Sandi", desc: "Cukup ID akun, kata sandi tidak pernah diminta" },
     { icon: "💳", title: "Pembayaran Mudah", desc: "QRIS, GoPay, DANA, OVO & ShopeePay" },
     { icon: "🎧", title: "Customer Support 24/7", desc: "Siap membantu kendala transaksi Anda" },
   ];
@@ -158,11 +158,11 @@
   const FAQS = [
     {
       q: "Berapa lama proses top up diamond atau voucher game?",
-      a: "Semua pesanan di NEXUS TOPUP diproses otomatis oleh sistem dalam 1 sampai 3 detik setelah pembayaran terverifikasi oleh payment gateway resmi.",
+      a: "Semua pesanan di NEXUS TOPUP diproses otomatis oleh sistem dalam 1 sampai 3 detik setelah pembayaran terverifikasi.",
     },
     {
-      q: "Apakah top up di NEXUS TOPUP aman dan legal?",
-      a: "Sangat aman. Diamond, UC, dan Genesis Crystal yang kami jual berasal dari distributor resmi (Moonton, Garena, Level Infinite, HoYoverse). Kami hanya membutuhkan ID akun, tidak pernah meminta kata sandi.",
+      q: "Apakah saya perlu memberikan kata sandi akun game?",
+      a: "Tidak. NEXUS TOPUP hanya membutuhkan ID akun dan tidak pernah meminta kata sandi. Catatan: ini website demo tugas kuliah, jadi tidak ada transaksi sungguhan.",
     },
     {
       q: "Bagaimana jika saya salah memasukkan User ID atau Zone ID?",

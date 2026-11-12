@@ -41,7 +41,7 @@
           <div class="slide__art" aria-hidden="true">
             <div class="slide__card"><img src="${g.image}" alt="" loading="${i === 0 ? "eager" : "lazy"}" /></div>
             <span class="slide__chip slide__chip--a">⚡ Proses 1-3 detik</span>
-            <span class="slide__chip slide__chip--b">🛡️ 100% Legal &amp; Aman</span>
+            <span class="slide__chip slide__chip--b">🔒 Tanpa kata sandi</span>
           </div>
         </article>`;
       }).join("")}

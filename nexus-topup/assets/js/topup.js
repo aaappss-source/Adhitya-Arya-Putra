@@ -42,7 +42,7 @@
           <div class="game-hero__chips">
             <span class="chip">🏢 ${esc(game.publisher)}</span>
             <span class="chip">⚡ Proses 1-3 detik</span>
-            <span class="chip">🛡️ Resmi &amp; Legal</span>
+            <span class="chip">🔒 Tanpa kata sandi</span>
           </div>
         </div>
       </div>
