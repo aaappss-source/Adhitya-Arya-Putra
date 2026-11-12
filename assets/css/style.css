@@ -1,0 +1,771 @@
+/* =========================================================
+   Portofolio Adhitya Arya Putra
+   Warna diambil dari foto: biru tua baju (latar), biru studio (seleksi),
+   putih kertas untuk teks, amber untuk semua aksi.
+   ========================================================= */
+
+/* ---------- 1. Token ---------- */
+:root {
+  /* Warna */
+  --tinta: #11172b;      /* latar utama */
+  --tinta-2: #182039;    /* permukaan sedikit lebih terang */
+  --garis: #2a3352;      /* garis dan pembatas */
+  --kertas: #ede7da;     /* teks utama */
+  --kabut: #a3abc2;      /* teks pendukung */
+  --amber: #f2b547;      /* tombol, link, fokus */
+  --amber-terang: #ffc968;
+  --biru: #1c4990;       /* warna latar studio di foto, dipakai untuk seleksi teks */
+
+  /* Huruf */
+  --font: "Archivo", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --t-sm: 0.875rem;
+  --t-base: 1.0625rem;
+  --t-md: 1.25rem;
+  --t-lg: 1.75rem;
+  --t-xl: clamp(2.25rem, 6vw, 4.5rem);
+  --t-display: clamp(3.75rem, 12vw, 9.5rem);
+
+  /* Ruang */
+  --wrap: 72rem;
+  --gutter: 1.25rem;
+  --header-h: 4.25rem;
+  --section-y: clamp(4rem, 9vw, 7rem);
+  --radius: 6px;
+}
+
+/* ---------- 2. Dasar ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--header-h) + 1rem);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--tinta);
+  color: var(--kertas);
+  font-family: var(--font);
+  font-size: var(--t-base);
+  line-height: 1.6;
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, p, ul, ol, dl, dd, figure {
+  margin: 0;
+}
+
+ul, ol {
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  background: var(--biru);
+  color: var(--kertas);
+}
+
+:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.wrap {
+  width: min(100% - 2 * var(--gutter), var(--wrap));
+  margin-inline: auto;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--gutter);
+  top: -4rem;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  background: var(--amber);
+  color: var(--tinta);
+  font-weight: 600;
+  border-radius: var(--radius);
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 0.75rem;
+}
+
+/* Penanda isian draf. Hapus class "isi" setelah teksnya diganti. */
+.isi {
+  background: rgba(242, 181, 71, 0.12);
+  outline: 1px dashed rgba(242, 181, 71, 0.55);
+  outline-offset: 1px;
+  border-radius: 3px;
+  padding: 0 0.2em;
+}
+
+/* ---------- 3. Tombol dan link ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0 1.25rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.btn--primary {
+  background: var(--amber);
+  color: var(--tinta);
+}
+
+.btn--primary:hover {
+  background: var(--amber-terang);
+}
+
+.btn--outline {
+  border-color: #646e98;
+  color: var(--kertas);
+}
+
+.btn--outline:hover {
+  border-color: var(--amber);
+  color: var(--amber);
+}
+
+.btn--small {
+  min-height: 2.5rem;
+  padding: 0 0.9rem;
+  font-size: var(--t-sm);
+}
+
+.link {
+  color: var(--kertas);
+  text-decoration: underline;
+  text-decoration-color: var(--amber);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.28em;
+  transition: color 0.15s ease;
+}
+
+.link:hover {
+  color: var(--amber);
+}
+
+/* ---------- 4. Header ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--tinta);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.site-header.is-scrolled {
+  border-bottom-color: var(--garis);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  min-height: var(--header-h);
+}
+
+.brand {
+  font-weight: 700;
+  font-stretch: 85%;
+  font-size: 1.0625rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.menu-toggle {
+  display: none;
+  min-height: 2.75rem;
+  padding: 0 1rem;
+  background: transparent;
+  border: 1px solid #646e98;
+  border-radius: var(--radius);
+  color: var(--kertas);
+  font: inherit;
+  font-size: var(--t-sm);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.nav__list {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.nav__list a {
+  font-size: 0.9375rem;
+  color: var(--kabut);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.nav__list a:hover,
+.nav__list a[aria-current="true"] {
+  color: var(--kertas);
+}
+
+/* ---------- 5. Hero ---------- */
+.hero {
+  padding-top: clamp(1rem, 3vw, 2rem);
+  overflow: hidden;
+}
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  align-items: end;
+}
+
+.hero__text {
+  position: relative;
+  z-index: 2;
+  margin-right: -9rem;
+  padding-bottom: clamp(3rem, 7vw, 5.5rem);
+}
+
+.hero__name {
+  font-size: var(--t-display);
+  font-weight: 800;
+  font-stretch: 68%;
+  line-height: 0.86;
+  letter-spacing: -0.01em;
+}
+
+.hero__line {
+  display: block;
+}
+
+.hero__role {
+  margin-top: 2rem;
+  font-size: var(--t-md);
+  font-weight: 600;
+}
+
+.hero__lead {
+  margin-top: 0.5rem;
+  max-width: 38ch;
+  font-size: 1.125rem;
+  color: var(--kabut);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.hero__photo img {
+  width: 100%;
+  max-height: calc(100svh - var(--header-h) - 1rem);
+  object-fit: cover;
+  object-position: 50% 0;
+  /* Bagian bawah foto memudar supaya baju biru tua menyatu dengan latar */
+  -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 97%);
+  mask-image: linear-gradient(to bottom, #000 55%, transparent 97%);
+}
+
+/* Satu-satunya animasi otomatis: nama dan foto muncul saat halaman dibuka */
+@media (prefers-reduced-motion: no-preference) {
+  .hero__line {
+    animation: naik 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+
+  .hero__line + .hero__line {
+    animation-delay: 0.12s;
+  }
+
+  .hero__photo {
+    animation: muncul 1.2s ease 0.15s both;
+  }
+}
+
+@keyframes naik {
+  from {
+    clip-path: inset(0 0 100% 0);
+    transform: translateY(0.3em);
+  }
+  to {
+    clip-path: inset(0 0 -0.1em 0);
+    transform: none;
+  }
+}
+
+@keyframes muncul {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ---------- 6. Section umum ---------- */
+.section {
+  padding-block: var(--section-y);
+  border-top: 1px solid var(--garis);
+}
+
+.section__grid {
+  display: grid;
+  grid-template-columns: 12rem minmax(0, 1fr);
+  gap: 2rem 3rem;
+}
+
+.section__title {
+  align-self: start;
+  position: sticky;
+  top: calc(var(--header-h) + 1.5rem);
+  font-size: var(--t-lg);
+  font-weight: 700;
+  font-stretch: 80%;
+  line-height: 1.1;
+}
+
+.section__intro {
+  max-width: 52ch;
+  margin-bottom: 2.5rem;
+  color: var(--kabut);
+}
+
+.subhead {
+  margin: 4.5rem 0 2rem;
+  font-size: var(--t-lg);
+  font-weight: 700;
+  font-stretch: 80%;
+  line-height: 1.1;
+}
+
+.prose {
+  max-width: 62ch;
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+
+.prose p + p {
+  margin-top: 1.1em;
+}
+
+/* ---------- 7. Proyek ---------- */
+.projects {
+  display: grid;
+  gap: clamp(3.5rem, 7vw, 5.5rem);
+}
+
+.project {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 2rem 2.5rem;
+  align-items: start;
+}
+
+.project__media img,
+.project__cover {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 4px;
+}
+
+.project__media img {
+  object-fit: cover;
+  border: 1px solid var(--garis);
+}
+
+/* Sampul sementara sebelum ada screenshot: nama proyek dan alur penggunaannya */
+.project__cover {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  background: var(--tinta-2);
+  border: 1px solid var(--garis);
+}
+
+.project__cover-name {
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 800;
+  font-stretch: 70%;
+  line-height: 0.95;
+}
+
+.project__flow {
+  display: grid;
+  gap: 0.35rem;
+  list-style: none;
+  counter-reset: langkah;
+  font-size: 0.9375rem;
+  color: var(--kabut);
+}
+
+.project__flow li {
+  counter-increment: langkah;
+  display: grid;
+  grid-template-columns: 1.5rem minmax(0, 1fr);
+}
+
+.project__flow li::before {
+  content: counter(langkah);
+  color: var(--amber);
+  font-variant-numeric: tabular-nums;
+}
+
+.project__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-stretch: 85%;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+.project__info > p {
+  color: var(--kabut);
+}
+
+.project__info > p + p {
+  margin-top: 0.9em;
+}
+
+.project__meta {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+  font-size: 0.9375rem;
+}
+
+.project__meta > div {
+  display: grid;
+  grid-template-columns: 6.5rem minmax(0, 1fr);
+  gap: 1rem;
+}
+
+.project__meta dt {
+  color: var(--kabut);
+}
+
+.project__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  margin-top: 1.5rem;
+  font-weight: 600;
+}
+
+/* ---------- 8. Layanan ---------- */
+.services {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.75rem 3rem;
+  list-style: none;
+}
+
+.service {
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--garis);
+}
+
+.service__title {
+  margin-bottom: 0.5rem;
+  font-size: var(--t-md);
+  font-weight: 700;
+  font-stretch: 88%;
+  line-height: 1.25;
+}
+
+.service p {
+  color: var(--kabut);
+  max-width: 40ch;
+}
+
+/* ---------- 9. Pengalaman dan pendidikan ---------- */
+.timeline {
+  display: grid;
+  gap: 2.75rem;
+  list-style: none;
+}
+
+.timeline--compact {
+  gap: 1.75rem;
+}
+
+.timeline__item {
+  display: grid;
+  grid-template-columns: 13rem minmax(0, 1fr);
+  gap: 0.5rem 2rem;
+}
+
+.timeline__date {
+  padding-top: 0.2rem;
+  font-size: 0.9375rem;
+  color: var(--kabut);
+  font-variant-numeric: tabular-nums;
+}
+
+.timeline__role {
+  font-size: var(--t-md);
+  font-weight: 700;
+  font-stretch: 88%;
+  line-height: 1.3;
+}
+
+.timeline__place {
+  color: var(--kabut);
+}
+
+.timeline__points {
+  display: grid;
+  list-style: disc;
+  gap: 0.4rem;
+  margin-top: 0.9rem;
+  padding-left: 1.1rem;
+  max-width: 62ch;
+}
+
+.timeline__points li::marker {
+  color: #5c6690;
+}
+
+/* ---------- 10. Keahlian ---------- */
+.skills {
+  display: grid;
+}
+
+.skills__group {
+  display: grid;
+  grid-template-columns: 12.5rem minmax(0, 1fr);
+  gap: 0.25rem 2rem;
+  padding-block: 1.1rem;
+  border-top: 1px solid var(--garis);
+}
+
+.skills__group:last-child {
+  border-bottom: 1px solid var(--garis);
+}
+
+.skills dt {
+  color: var(--kabut);
+}
+
+/* ---------- 11. Kontak ---------- */
+.contact {
+  padding-block: clamp(5rem, 12vw, 9rem);
+  border-top: 1px solid var(--garis);
+}
+
+.contact__title {
+  max-width: 21ch;
+  font-size: var(--t-xl);
+  font-weight: 800;
+  font-stretch: 72%;
+  line-height: 1;
+  letter-spacing: -0.005em;
+}
+
+.contact__lead {
+  margin-top: 1.5rem;
+  color: var(--kabut);
+  font-size: 1.125rem;
+}
+
+.contact__email {
+  display: inline-block;
+  margin-top: 2rem;
+  font-size: clamp(1.25rem, 3.6vw, 2.25rem);
+  font-weight: 600;
+  color: var(--amber);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+  overflow-wrap: anywhere;
+  transition: color 0.15s ease;
+}
+
+.contact__email:hover {
+  color: var(--amber-terang);
+}
+
+.contact__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 2rem;
+  margin-top: 2rem;
+  list-style: none;
+}
+
+/* ---------- 12. Footer ---------- */
+.site-footer {
+  padding-block: 2rem;
+  border-top: 1px solid var(--garis);
+  font-size: var(--t-sm);
+  color: var(--kabut);
+}
+
+/* =========================================================
+   Responsif
+   ========================================================= */
+
+/* Tablet */
+@media (max-width: 960px) {
+  .hero__text {
+    margin-right: -6rem;
+  }
+
+  .section__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .section__title {
+    position: static;
+  }
+
+  .project {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Menu berubah jadi tombol */
+@media (max-width: 820px) {
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+    padding: 0.5rem var(--gutter) 1.5rem;
+    background: var(--tinta-2);
+    border-bottom: 1px solid var(--garis);
+  }
+
+  .nav.is-open {
+    display: flex;
+  }
+
+  .nav__list {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .nav__list a {
+    display: block;
+    padding: 0.9rem 0;
+    font-size: 1.0625rem;
+    color: var(--kertas);
+    border-bottom: 1px solid var(--garis);
+  }
+
+  .nav .btn {
+    min-height: 3rem;
+  }
+}
+
+/* HP: foto di atas, nama menimpa bagian bawah foto yang memudar */
+@media (max-width: 640px) {
+  .hero {
+    padding-top: 0;
+  }
+
+  .hero__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero__photo {
+    order: -1;
+    margin-inline: calc(-1 * var(--gutter));
+  }
+
+  .hero__photo img {
+    max-height: 68svh;
+    -webkit-mask-image: linear-gradient(to bottom, #000 50%, transparent 96%);
+    mask-image: linear-gradient(to bottom, #000 50%, transparent 96%);
+  }
+
+  .hero__text {
+    margin-right: 0;
+    margin-top: -5.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .hero__name {
+    font-size: clamp(3.5rem, 19vw, 5.5rem);
+  }
+
+  .hero__role {
+    font-size: 1.125rem;
+  }
+
+  .hero__actions .btn {
+    flex: 1 1 10rem;
+  }
+
+  .services {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .timeline__item,
+  .skills__group {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .project__meta > div {
+    grid-template-columns: 5.5rem minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
