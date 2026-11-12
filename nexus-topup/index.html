@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NEXUS TOPUP — Top Up Game Termurah &amp; Tercepat</title>
+    <meta
+      name="description"
+      content="Top up Diamond Mobile Legends, Free Fire, UC PUBG Mobile, dan Genesis Crystal Genshin Impact. Proses otomatis 1-3 detik, bayar via QRIS, GoPay, DANA, OVO, ShopeePay."
+    />
+    <meta name="theme-color" content="#070B16" />
+    <meta property="og:title" content="NEXUS TOPUP — Top Up Game Termurah &amp; Tercepat" />
+    <meta property="og:description" content="Top up game favoritmu: proses otomatis, harga terbaik, pembayaran mudah." />
+    <meta property="og:image" content="assets/img/hero-banner.jpg" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%237C3AED'/%3E%3Cstop offset='1' stop-color='%2322D3EE'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='18' fill='url(%23g)'/%3E%3Ctext x='32' y='44' font-family='Arial' font-weight='800' font-size='36' text-anchor='middle' fill='white'%3EN%3C/text%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/layout.css" />
+    <link rel="stylesheet" href="assets/css/components.css" />
+    <link rel="stylesheet" href="assets/css/home.css" />
+    <script defer src="assets/js/data.js"></script>
+    <script defer src="assets/js/store.js"></script>
+    <script defer src="assets/js/ui.js"></script>
+    <script defer src="assets/js/home.js"></script>
+  </head>
+  <body>
+    <header id="site-header"></header>
+
+    <main id="top">
+      <!-- Hero slider -->
+      <section class="hero" aria-label="Promo utama">
+        <div class="container">
+          <div
+            class="slider"
+            id="slider"
+            role="region"
+            aria-roledescription="carousel"
+            aria-label="Banner game"
+          ></div>
+        </div>
+      </section>
+
+      <!-- Keunggulan -->
+      <section class="container features" id="features" aria-label="Keunggulan"></section>
+
+      <!-- Katalog game -->
+      <section class="section container" id="katalog" aria-labelledby="katalog-title">
+        <div class="section-title">
+          <h2 id="katalog-title">🎮 Pilih Game Favoritmu</h2>
+          <p>Tersedia 4 game populer dengan harga terbaik &amp; proses otomatis 24 jam</p>
+        </div>
+        <div class="game-grid" id="game-grid"></div>
+      </section>
+
+      <!-- Cek transaksi -->
+      <section class="section section--tight container" id="tracking" aria-labelledby="tracking-title">
+        <div class="tracking">
+          <div class="section-title">
+            <h2 id="tracking-title">🔍 Lacak Pesanan / Cek Transaksi</h2>
+            <p>Cek status proses pengiriman diamond dan item game Anda secara realtime</p>
+          </div>
+          <form class="tracking__form" id="tracking-form" novalidate>
+            <div class="field">
+              <label class="sr-only" for="order-no">Nomor pesanan</label>
+              <input
+                class="input"
+                id="order-no"
+                name="order"
+                type="text"
+                autocomplete="off"
+                autocapitalize="characters"
+                spellcheck="false"
+                placeholder="Masukkan No. Pesanan, contoh: NXS-20261030-8842"
+              />
+            </div>
+            <button class="btn btn--primary btn--lg" type="submit">Lacak Pesanan</button>
+          </form>
+          <p class="tracking__error" id="tracking-error" role="alert" hidden></p>
+          <p class="tracking__demo">
+            Belum punya pesanan? Coba contoh:
+            <button type="button" id="tracking-demo">NXS-20261030-8842</button>
+          </p>
+          <div id="tracking-result" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section section--tight container" id="faq" aria-labelledby="faq-title">
+        <div class="section-title">
+          <h2 id="faq-title">❓ Pertanyaan yang Sering Diajukan (FAQ)</h2>
+          <p>Semua informasi yang perlu Anda ketahui tentang transaksi di NEXUS TOPUP</p>
+        </div>
+        <div class="faq" id="faq-list"></div>
+      </section>
+    </main>
+
+    <footer id="site-footer"></footer>
+  </body>
+</html>

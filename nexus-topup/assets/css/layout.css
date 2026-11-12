@@ -1,0 +1,320 @@
+/* ==========================================================================
+   NEXUS TOPUP — layout.css
+   Header, footer, logo, section title
+   ========================================================================== */
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(7, 11, 22, 0.82);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
+.site-header__inner {
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+}
+
+.logo__mark {
+  width: 44px;
+  height: 44px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 22px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  box-shadow: 0 6px 18px -4px rgba(124, 58, 237, 0.55);
+}
+
+.logo__name {
+  display: block;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+}
+
+.logo__tag {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.main-nav a {
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.main-nav a:hover,
+.main-nav a[aria-current="true"] {
+  color: var(--white);
+  background: var(--surface-2);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.icon-btn {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  font-size: 18px;
+  transition: border-color 0.2s, transform 0.2s var(--ease);
+}
+
+.icon-btn:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.menu-toggle {
+  display: none;
+}
+
+@media (max-width: 960px) {
+  :root {
+    --header-h: 68px;
+  }
+
+  .menu-toggle {
+    display: grid;
+  }
+
+  .main-nav {
+    position: absolute;
+    top: var(--header-h);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    padding: 12px var(--gutter) 16px;
+    background: rgba(7, 11, 22, 0.97);
+    border-bottom: 1px solid var(--border);
+    transform: translateY(-8px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+  }
+
+  .main-nav.is-open {
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .main-nav a {
+    padding: 14px 16px;
+  }
+
+  .logo__tag {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-header__inner {
+    gap: 12px;
+  }
+  .header-actions {
+    gap: 8px;
+  }
+  .logo {
+    gap: 10px;
+    min-width: 0;
+  }
+  .logo__mark {
+    width: 38px;
+    height: 38px;
+    font-size: 19px;
+  }
+  .logo__name {
+    font-size: 17px;
+  }
+}
+
+/* Tombol cari hanya pintasan ke katalog; disembunyikan di layar sempit */
+@media (max-width: 480px) {
+  :root {
+    --gutter: 16px;
+  }
+  .icon-btn--search {
+    display: none;
+  }
+}
+
+/* HP posisi landscape: tinggi layar sempit, header tidak perlu menempel */
+@media (max-height: 500px) and (orientation: landscape) {
+  .site-header {
+    position: static;
+  }
+  html {
+    scroll-padding-top: 16px;
+  }
+}
+
+/* ---------- Section title ---------- */
+.section {
+  padding-block: 56px;
+}
+
+.section--tight {
+  padding-block: 24px 56px;
+}
+
+.section-title {
+  margin-bottom: 28px;
+}
+
+.section-title h2 {
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.section-title p {
+  margin-top: 8px;
+  color: var(--muted);
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding-block: 40px;
+  }
+  .section-title h2 {
+    font-size: 24px;
+  }
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  margin-top: 40px;
+  background: var(--bg-2);
+  border-top: 1px solid var(--border);
+}
+
+.site-footer__cols {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+  gap: 56px;
+  padding-block: 56px 40px;
+}
+
+.site-footer__brand p {
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 14px;
+  max-width: 440px;
+}
+
+.pay-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.pay-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 7px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1.3;
+}
+
+.site-footer h3 {
+  margin-bottom: 14px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.site-footer li + li {
+  margin-top: 10px;
+}
+
+.site-footer li a,
+.site-footer__help p {
+  font-size: 14px;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+
+/* Area ketuk lebih besar untuk tautan footer tanpa mengubah jarak tampilan */
+.site-footer li a {
+  display: inline-block;
+  padding-block: 6px;
+  margin-block: -6px;
+}
+
+.site-footer li a:hover {
+  color: var(--accent);
+}
+
+.site-footer__help .btn {
+  margin-top: 14px;
+  font-size: 13px;
+}
+
+.site-footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-block: 24px 28px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--dim);
+}
+
+@media (max-width: 960px) {
+  .site-footer__cols {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+  .site-footer__brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-footer__cols {
+    grid-template-columns: 1fr;
+  }
+}

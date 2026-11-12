@@ -402,55 +402,12 @@ a {
   align-items: start;
 }
 
-.project__media img,
-.project__cover {
+.project__media img {
   width: 100%;
   aspect-ratio: 16 / 10;
-  border-radius: 4px;
-}
-
-.project__media img {
   object-fit: cover;
   border: 1px solid var(--garis);
-}
-
-/* Sampul sementara sebelum ada screenshot: nama proyek dan alur penggunaannya */
-.project__cover {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 1.5rem;
-  padding: clamp(1.25rem, 3vw, 2rem);
-  background: var(--tinta-2);
-  border: 1px solid var(--garis);
-}
-
-.project__cover-name {
-  font-size: clamp(2rem, 5vw, 3.25rem);
-  font-weight: 800;
-  font-stretch: 70%;
-  line-height: 0.95;
-}
-
-.project__flow {
-  display: grid;
-  gap: 0.35rem;
-  list-style: none;
-  counter-reset: langkah;
-  font-size: 0.9375rem;
-  color: var(--kabut);
-}
-
-.project__flow li {
-  counter-increment: langkah;
-  display: grid;
-  grid-template-columns: 1.5rem minmax(0, 1fr);
-}
-
-.project__flow li::before {
-  content: counter(langkah);
-  color: var(--amber);
-  font-variant-numeric: tabular-nums;
+  border-radius: 4px;
 }
 
 .project__title {
