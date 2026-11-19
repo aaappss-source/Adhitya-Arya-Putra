@@ -6,17 +6,34 @@
   <title>Halaman tidak ditemukan | Adhitya Arya Putra</title>
   <meta name="robots" content="noindex">
   <meta name="theme-color" content="#11172B">
-  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <!-- Halaman ini sengaja berdiri sendiri (gaya ditulis di sini), karena bisa tampil di alamat sedalam apa pun.
+       Link "Ke beranda" menyesuaikan diri: di github.io ke /Adhitya-Arya-Putra/, di domain sendiri ke /. -->
+  <style>
+    :root { --tinta:#11172b; --kertas:#ede7da; --kabut:#a3abc2; --amber:#f2b547; --amber-terang:#ffc968; }
+    * { box-sizing: border-box; }
+    body { margin:0; min-height:100vh; display:flex; align-items:center; background:var(--tinta); color:var(--kertas);
+           font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; line-height:1.6; }
+    main { width:100%; max-width:72rem; margin:0 auto; padding:4rem 1.25rem; }
+    .kode { margin:0 0 .5rem; color:var(--amber); font-weight:700; letter-spacing:.08em; }
+    h1 { margin:0 0 1rem; font-size:clamp(2.2rem, 5vw, 3.5rem); line-height:1.1; }
+    p { margin:0 0 2rem; max-width:36rem; color:var(--kabut); font-size:1.0625rem; }
+    a { display:inline-block; padding:.85rem 1.4rem; border-radius:6px; background:var(--amber); color:var(--tinta);
+        font-weight:700; text-decoration:none; }
+    a:hover { background:var(--amber-terang); }
+    a:focus-visible { outline:3px solid var(--kertas); outline-offset:3px; }
+  </style>
 </head>
 <body>
-  <main class="wrap" style="min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:1rem;padding-block:4rem">
-    <h1 class="hero__title">Halaman tidak ditemukan.</h1>
-    <p class="hero__lead">Alamat yang Anda buka tidak ada atau sudah dipindah. Kembali ke beranda untuk melihat layanan dan proyek saya.</p>
-    <a class="btn btn--primary" href="/">Ke beranda</a>
+  <main>
+    <p class="kode">404</p>
+    <h1>Halaman tidak ditemukan.</h1>
+    <p>Alamat yang Anda buka tidak ada atau sudah dipindah. Kembali ke beranda untuk melihat layanan dan proyek saya.</p>
+    <a href="/" data-home>Ke beranda</a>
   </main>
+  <script>
+    if (location.hostname.endsWith("github.io")) {
+      document.querySelector("[data-home]").setAttribute("href", "/Adhitya-Arya-Putra/");
+    }
+  </script>
 </body>
 </html>
