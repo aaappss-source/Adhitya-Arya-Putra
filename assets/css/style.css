@@ -1408,7 +1408,7 @@ a {
 /* =========================================================
    16. Tombol WhatsApp melayang
    Selalu terlihat di pojok kanan bawah dan langsung membuka chat WA.
-   Logo WhatsApp resmi di atas lingkaran putih supaya warnanya tetap asli dan jelas.
+   Logo WhatsApp resmi versi putih di atas lingkaran hijau WhatsApp (#25D366).
    Jangan ubah warna atau bentuk logonya (aturan WhatsApp Brand Resources).
    ========================================================= */
 .wa-float {
@@ -1420,14 +1420,20 @@ a {
   place-items: center;
   width: 3.5rem;
   height: 3.5rem;
-  background: #ffffff;
+  background: #25d366;
   border-radius: 50%;
   box-shadow: 0 10px 28px rgba(5, 8, 20, 0.5), 0 2px 6px rgba(5, 8, 20, 0.3);
   transition: background-color 0.15s ease;
 }
 
 .wa-float:hover {
-  background: #f1f4f2;
+  background: #1fbf5b;
+}
+
+/* Tetap bulat saat difokus keyboard (aturan fokus umum memakai sudut 2px) */
+.wa-float:focus-visible {
+  border-radius: 50%;
+  outline-offset: 4px;
 }
 
 .wa-float img {

@@ -36,7 +36,7 @@ assets/img/                 foto, favicon, screenshot proyek
 ## Tombol WhatsApp melayang
 
 - Ada di akhir `index.html` (`<a class="wa-float">`) dan bagian "16. Tombol WhatsApp melayang" di `style.css`.
-- Logo `assets/img/whatsapp-logo.png` berasal dari WhatsApp Brand Resources (Meta), hanya diperkecil. Sesuai aturan Meta, jangan ubah warna atau bentuknya.
+- Logo `assets/img/whatsapp-logo-putih.png` (versi putih, di atas lingkaran hijau #25D366) berasal dari WhatsApp Brand Resources (Meta), hanya diperkecil. Sesuai aturan Meta, jangan ubah warna atau bentuknya.
 
 ## Mengaktifkan GitHub Pages
 
