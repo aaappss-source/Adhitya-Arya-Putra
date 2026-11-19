@@ -52,6 +52,8 @@
 html {
   -webkit-text-size-adjust: 100%;
   scroll-padding-top: calc(var(--header-h) + 1rem);
+  /* Supaya elemen yang difokus tidak tertutup tombol WhatsApp melayang */
+  scroll-padding-bottom: calc(4.5rem + env(safe-area-inset-bottom, 0px));
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -1403,8 +1405,70 @@ a {
   display: inline-block;
 }
 
+/* =========================================================
+   16. Tombol WhatsApp melayang
+   Selalu terlihat di pojok kanan bawah dan langsung membuka chat WA.
+   Warna hijau dipakai supaya langsung dikenali sebagai WhatsApp.
+   ========================================================= */
+.wa-float {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right, 0px));
+  bottom: max(1rem, env(safe-area-inset-bottom, 0px));
+  z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 3rem;
+  padding: 0 1.15rem 0 0.95rem;
+  background: var(--hijau);
+  color: var(--tinta);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  text-decoration: none;
+  border-radius: var(--radius);
+  box-shadow: 0 10px 28px rgba(5, 8, 20, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+  transition: background-color 0.15s ease;
+}
+
+.wa-float:hover {
+  background: #62d29f;
+}
+
+.wa-float__icon {
+  flex: none;
+}
+
+/* Ruang di bawah footer supaya teks terakhir tidak tertutup tombol */
+@media (max-width: 640px) {
+  .site-footer {
+    padding-bottom: calc(2rem + 4rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Masuk pelan setelah urutan pembuka hero selesai, lalu sedikit terangkat saat disorot */
+  .motion .wa-float {
+    animation: wa-masuk 0.7s var(--ease-out) 1.1s both;
+  }
+
+  .wa-float {
+    transition: background-color 0.15s ease, translate 0.3s var(--ease-out);
+  }
+
+  .wa-float:hover {
+    translate: 0 -2px;
+  }
+}
+
+@keyframes wa-masuk {
+  from { opacity: 0; transform: translateY(1rem); }
+  to { opacity: 1; transform: none; }
+}
+
 /* Saat dicetak, semua konten tampil utuh */
 @media print {
+  .wa-float { display: none; }
+
   .motion .reveal,
   .motion .reveal-media,
   .motion .reveal-media img,
