@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /nexus-topup/bayar.html
+Disallow: /nexus-topup/berhasil.html

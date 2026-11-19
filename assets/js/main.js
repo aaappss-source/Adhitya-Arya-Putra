@@ -123,7 +123,6 @@
     const groups = [
       [".service", 80],
       [".freebie", 0],
-      [".freebie__list li", 35],
       [".feature__info, .feature__actions, .feature__facts", 120],
       [".mini", 140],
       [".about .prose p", 110],
