@@ -20,6 +20,14 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
 
   <link rel="stylesheet" href="assets/css/style.css">
+  <script>
+    // Tandai lebih awal bahwa animasi boleh jalan, supaya konten tidak berkedip sebelum main.js jalan.
+    // Kalau main.js gagal dimuat, bagian atas tetap ditampilkan setelah 3 detik.
+    if (window.matchMedia && matchMedia("(prefers-reduced-motion: no-preference)").matches) {
+      document.documentElement.classList.add("motion");
+      setTimeout(function () { document.documentElement.classList.add("is-ready"); }, 3000);
+    }
+  </script>
   <script src="assets/js/main.js" defer></script>
 </head>
 <body>
@@ -45,6 +53,7 @@
         <a class="btn btn--small btn--outline" href="https://wa.me/62895396797368" target="_blank" rel="noopener">Chat WhatsApp</a>
       </nav>
     </div>
+    <span class="progress" aria-hidden="true"></span>
   </header>
 
   <main id="konten">
@@ -56,9 +65,9 @@
       <div class="wrap hero__grid">
         <div class="hero__text">
           <h1 class="hero__title" id="hero-title">
-            <span>Pesanan dari chat,</span>
-            <span>langsung tercatat</span>
-            <span>sendiri.</span>
+            <span class="line"><span>Pesanan dari chat,</span></span>
+            <span class="line"><span>langsung tercatat</span></span>
+            <span class="line"><span>sendiri.</span></span>
           </h1>
           <p class="hero__lead">
             Saya Adhitya, dari Depok. Saya membuat website, bot WhatsApp, dan otomatisasi admin
@@ -139,10 +148,18 @@
       </div>
     </section>
 
+    <!-- ============ PITA TEKS ============
+         Hiasan saja (isi sama dengan daftar layanan), jadi disembunyikan dari pembaca layar.
+         Bergerak hanya mengikuti scroll, tidak berjalan sendiri. -->
+    <div class="marquee" aria-hidden="true" data-sl>
+      <div class="marquee__row"><span>Website usaha</span><i></i><span>Bot WhatsApp</span><i></i><span>Otomatisasi admin</span><i></i><span>Website usaha</span><i></i><span>Bot WhatsApp</span><i></i><span>Otomatisasi admin</span><i></i><span>Website usaha</span><i></i><span>Bot WhatsApp</span><i></i><span>Otomatisasi admin</span><i></i></div>
+      <div class="marquee__row marquee__row--alt"><span>Aplikasi web</span><i></i><span>Template custom</span><i></i><span>Rekap otomatis</span><i></i><span>Aplikasi web</span><i></i><span>Template custom</span><i></i><span>Rekap otomatis</span><i></i><span>Aplikasi web</span><i></i><span>Template custom</span><i></i><span>Rekap otomatis</span><i></i></div>
+    </div>
+
     <!-- ============ LAYANAN ============ -->
     <section class="section" id="layanan" aria-labelledby="layanan-title">
       <div class="wrap">
-        <h2 class="h2" id="layanan-title">Yang bisa saya bantu</h2>
+        <h2 class="h2" data-split id="layanan-title">Yang bisa saya bantu</h2>
         <ul class="services">
           <li class="service">
             <h3 class="service__title">Website usaha</h3>
@@ -193,10 +210,12 @@
          Proyek utama tampil besar (.feature), proyek lain dua kolom (.mini). -->
     <section class="section section--band" id="proyek" aria-labelledby="proyek-title">
       <div class="wrap">
-        <h2 class="h2" id="proyek-title">Proyek</h2>
+        <h2 class="h2" data-split id="proyek-title">Proyek</h2>
 
         <article class="feature">
-          <img class="feature__img" src="assets/img/proyek-natasya-makeup.webp" alt="Website Natasya Makeup di laptop dan formulir booking di HP" width="1600" height="1000" loading="lazy">
+          <div class="feature__media" data-sl>
+            <img class="feature__img" src="assets/img/proyek-natasya-makeup.webp" alt="Website Natasya Makeup di laptop dan formulir booking di HP" width="1600" height="1000" loading="lazy">
+          </div>
           <div class="feature__body">
             <div>
               <h3 class="feature__title">Natasya Makeup</h3>
@@ -217,7 +236,9 @@
         </article>
 
         <article class="feature">
-          <img class="feature__img" src="assets/img/proyek-pengelola-tugas.webp" alt="Tiga layar aplikasi Pengelola Tugas: daftar tugas, kalender, dan grafik" width="1600" height="1000" loading="lazy">
+          <div class="feature__media" data-sl>
+            <img class="feature__img" src="assets/img/proyek-pengelola-tugas.webp" alt="Tiga layar aplikasi Pengelola Tugas: daftar tugas, kalender, dan grafik" width="1600" height="1000" loading="lazy">
+          </div>
           <div class="feature__body">
             <div>
               <h3 class="feature__title">Pengelola Tugas</h3>
@@ -239,7 +260,9 @@
 
         <div class="minor">
           <article class="mini">
-            <img class="mini__img" src="assets/img/proyek-nexus-topup.webp" alt="Halaman beranda Nexus TopUp: banner top up Mobile Legends dan daftar game" width="1600" height="1000" loading="lazy">
+            <div class="mini__media">
+              <img class="mini__img" src="assets/img/proyek-nexus-topup.webp" alt="Halaman beranda Nexus TopUp: banner top up Mobile Legends dan daftar game" width="1600" height="1000" loading="lazy">
+            </div>
             <h3 class="mini__title">Nexus TopUp</h3>
             <p class="mini__kind">Toko online top up game</p>
             <p>Pembeli memilih game, mengisi ID akun, membayar, lalu bisa mengecek status pesanannya sendiri tanpa harus chat admin.</p>
@@ -249,7 +272,9 @@
           </article>
 
           <article class="mini">
-            <img class="mini__img" src="assets/img/proyek-mealmate.webp" alt="Halaman beranda toko MealMate dengan foto tas bekal warna hitam" width="1600" height="1000" loading="lazy">
+            <div class="mini__media">
+              <img class="mini__img" src="assets/img/proyek-mealmate.webp" alt="Halaman beranda toko MealMate dengan foto tas bekal warna hitam" width="1600" height="1000" loading="lazy">
+            </div>
             <h3 class="mini__title">MealMate</h3>
             <p class="mini__kind">Toko online produk fisik</p>
             <p>Pembeli memilih ukuran dan warna, memasukkan ke keranjang, mengisi alamat, lalu membayar lewat QRIS atau Virtual Account.</p>
@@ -264,7 +289,7 @@
     <!-- ============ CARA KERJA ============ -->
     <section class="section" id="cara-kerja" aria-labelledby="cara-kerja-title">
       <div class="wrap">
-        <h2 class="h2" id="cara-kerja-title">Cara kerja</h2>
+        <h2 class="h2" data-split id="cara-kerja-title">Cara kerja</h2>
         <ol class="steps">
           <li class="step">
             <h3 class="step__title">Ceritakan kebutuhan</h3>
@@ -304,7 +329,7 @@
           </picture>
         </figure>
         <div class="about__text">
-          <h2 class="h2" id="tentang-title">Tentang saya</h2>
+          <h2 class="h2" data-split id="tentang-title">Tentang saya</h2>
           <div class="prose">
             <p>
               Saya lulusan SMK jurusan Teknik Komputer Jaringan dan sekarang kuliah S1 Manajemen
@@ -325,7 +350,7 @@
     <!-- ============ FAQ ============ -->
     <section class="section" id="faq" aria-labelledby="faq-title">
       <div class="wrap">
-        <h2 class="h2" id="faq-title">Pertanyaan umum</h2>
+        <h2 class="h2" data-split id="faq-title">Pertanyaan umum</h2>
         <div class="faq">
           <details class="faq__item">
             <summary>Berapa biayanya?</summary>
@@ -350,7 +375,7 @@
     <!-- ============ KONTAK ============ -->
     <section class="contact" id="kontak" aria-labelledby="kontak-title">
       <div class="wrap">
-        <h2 class="contact__title" id="kontak-title">Ada pekerjaan yang ingin dibuat lebih mudah?</h2>
+        <h2 class="contact__title" data-split id="kontak-title">Ada pekerjaan yang ingin dibuat lebih mudah?</h2>
         <p class="contact__lead">Ceritakan kebutuhan Anda lewat WhatsApp. Kalau lebih nyaman lewat email atau Instagram, bisa juga.</p>
         <a class="contact__main" href="https://wa.me/62895396797368" target="_blank" rel="noopener" aria-label="Chat WhatsApp ke +62 895-3967-97368">+62 895-3967-97368</a>
         <ul class="contact__list">

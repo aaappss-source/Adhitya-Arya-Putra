@@ -26,6 +26,12 @@ assets/img/                 foto, favicon, screenshot proyek
 - Proyek ada di bagian `<!-- PROYEK -->` di `index.html`. Proyek utama memakai `<article class="feature">`, proyek lain `<article class="mini">` (tinggal salin bloknya).
 - Screenshot proyek disimpan di `assets/img/` dengan ukuran sekitar 1600x1000.
 
+## Animasi
+
+- Semua gerak ada di bagian "15. Gerak" di `assets/css/style.css` dan bagian "3. Animasi" di `assets/js/main.js`.
+- Judul dengan atribut `data-split` naik kata demi kata. Elemen yang muncul saat discroll ditentukan di daftar `groups` di `main.js`.
+- Efek yang terikat scroll (pita teks, bingkai foto proyek, garis cara kerja, garis progres) memakai CSS scroll-driven animations. Browser yang belum mendukung memakai cadangan di `main.js`.
+- Pengunjung yang memilih "kurangi gerakan" di HP/laptopnya melihat halaman diam dan utuh. Tanpa JavaScript, semua konten tetap tampil.
 
 ## Mengaktifkan GitHub Pages
 
