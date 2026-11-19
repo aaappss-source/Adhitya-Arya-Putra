@@ -1,10 +1,9 @@
 // Portofolio Adhitya Arya Putra
 // Isi file:
 // 1. Menu HP, header (garis saat discroll, menyingkir saat scroll ke bawah), penanda menu aktif
-// 2. Peragaan chat ke rekap di hero
-// 3. Animasi: urutan pembuka, muncul saat discroll, judul per kata, cadangan efek scroll,
-//    cahaya hero + panel miring mengikuti kursor, tombol magnet, cahaya sorot
-// 4. Tahun di footer
+// 2. Animasi: urutan pembuka, muncul saat discroll, judul per kata, cadangan efek scroll,
+//    cahaya hero mengikuti kursor, tombol magnet, cahaya sorot
+// 3. Tahun di footer
 //
 // Semua animasi hanya jalan kalau pengunjung tidak memilih "kurangi gerakan" di perangkatnya.
 // Efek kursor hanya di perangkat dengan mouse/trackpad.
@@ -98,38 +97,7 @@
   }
 
   // =========================================================
-  // 2. Peragaan di hero: chat masuk satu per satu lalu tercatat di rekap
-  // =========================================================
-  // Elemen [data-step="n"] muncul berurutan. Diputar sekali saat halaman dibuka; tombol "Putar lagi"
-  // muncul setelah selesai. Dengan "kurangi gerakan", semua langsung tampil dan tidak diputar.
-  const demo = document.querySelector("[data-demo]");
-  if (demo) {
-    const steps = Array.from(demo.querySelectorAll("[data-step]"));
-    const replay = demo.querySelector("[data-demo-replay]");
-    const STEP_MS = 750;
-    const last = Math.max.apply(null, steps.map(function (el) { return Number(el.dataset.step); }));
-    let timers = [];
-
-    const play = function () {
-      timers.forEach(clearTimeout);
-      timers = [];
-      steps.forEach(function (el) { el.classList.remove("is-in"); });
-      demo.classList.add("is-playing");
-      if (replay) replay.hidden = true;
-      for (let n = 1; n <= last; n++) {
-        timers.push(setTimeout(function () {
-          steps.forEach(function (el) { if (Number(el.dataset.step) === n) el.classList.add("is-in"); });
-        }, 650 + (n - 1) * STEP_MS));
-      }
-      timers.push(setTimeout(function () { if (replay) replay.hidden = false; }, 650 + last * STEP_MS));
-    };
-
-    if (motionOK) play();
-    if (replay) replay.addEventListener("click", play);
-  }
-
-  // =========================================================
-  // 3. Animasi
+  // 2. Animasi
   // =========================================================
   if (motionOK && "IntersectionObserver" in window) {
     root.classList.add("motion");
@@ -158,8 +126,7 @@
       [".freebie__list li", 35],
       [".feature__body > *", 120],
       [".mini", 140],
-      [".step", 90],
-      [".about__text .prose p", 110],
+      [".about .prose p", 110],
       [".faq__item", 60],
       [".contact__lead", 0],
       [".contact__list", 0]
@@ -171,7 +138,7 @@
         el.style.setProperty("--d", Math.min(siblings.indexOf(el), 8) * group[1] + "ms");
       });
     });
-    document.querySelectorAll(".mini__media, .about__photo").forEach(function (el) {
+    document.querySelectorAll(".mini__media").forEach(function (el) {
       el.classList.add("reveal-media");
     });
 
@@ -205,7 +172,7 @@
     // CSS memakai --p (0..1, posisi elemen di layar) dan --scroll (posisi halaman).
     if (!scrollDriven) {
       root.classList.add("no-sda");
-      const linked = Array.from(document.querySelectorAll("[data-sl], .steps"));
+      const linked = Array.from(document.querySelectorAll("[data-sl]"));
       const inView = new Set();
       const viewObserver = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
@@ -224,10 +191,7 @@
         root.style.setProperty("--scroll", max > 0 ? (window.scrollY / max).toFixed(4) : "0");
         inView.forEach(function (el) {
           const r = el.getBoundingClientRect();
-          let p;
-          if (el.classList.contains("marquee")) p = (vh - r.top) / (vh + r.height);
-          else if (el.classList.contains("steps")) p = (vh * 0.85 - r.top) / (vh * 0.5);
-          else p = (vh - r.top) / (vh * 0.9);
+          const p = (vh - r.top) / (vh * 0.9);
           el.style.setProperty("--p", clamp(p, 0, 1).toFixed(4));
         });
       };
@@ -241,27 +205,20 @@
 
     // ---------- Efek kursor (laptop/PC saja) ----------
     if (finePointer) {
-      // Cahaya hero mengikuti kursor dan panel peragaan sedikit miring ke arah kursor
+      // Cahaya latar hero mengikuti kursor dengan sedikit jeda
       const hero = document.querySelector(".hero");
       if (hero) {
         const home = { x: 72, y: 38 };
-        const target = { x: home.x, y: home.y, rx: 0, ry: 0 };
-        const now = { x: home.x, y: home.y, rx: 0, ry: 0 };
+        const target = { x: home.x, y: home.y };
+        const now = { x: home.x, y: home.y };
         let raf = 0;
 
         const loop = function () {
           now.x += (target.x - now.x) * 0.08;
           now.y += (target.y - now.y) * 0.08;
-          now.rx += (target.rx - now.rx) * 0.1;
-          now.ry += (target.ry - now.ry) * 0.1;
           hero.style.setProperty("--gx", now.x.toFixed(2) + "%");
           hero.style.setProperty("--gy", now.y.toFixed(2) + "%");
-          if (demo) {
-            demo.style.setProperty("--rx", now.rx.toFixed(2) + "deg");
-            demo.style.setProperty("--ry", now.ry.toFixed(2) + "deg");
-          }
-          const moving = Math.abs(target.x - now.x) + Math.abs(target.y - now.y) +
-            Math.abs(target.rx - now.rx) + Math.abs(target.ry - now.ry);
+          const moving = Math.abs(target.x - now.x) + Math.abs(target.y - now.y);
           raf = moving > 0.02 ? requestAnimationFrame(loop) : 0;
         };
         const start = function () { if (!raf) raf = requestAnimationFrame(loop); };
@@ -270,17 +227,10 @@
           const h = hero.getBoundingClientRect();
           target.x = ((e.clientX - h.left) / h.width) * 100;
           target.y = ((e.clientY - h.top) / h.height) * 100;
-          if (demo) {
-            const d = demo.getBoundingClientRect();
-            const nx = (e.clientX - (d.left + d.width / 2)) / (d.width / 2);
-            const ny = (e.clientY - (d.top + d.height / 2)) / (d.height / 2);
-            target.rx = clamp(-ny * 3.5, -3.5, 3.5);
-            target.ry = clamp(nx * 4.5, -4.5, 4.5);
-          }
           start();
         });
         hero.addEventListener("pointerleave", function () {
-          target.x = home.x; target.y = home.y; target.rx = 0; target.ry = 0;
+          target.x = home.x; target.y = home.y;
           start();
         });
       }
@@ -311,7 +261,7 @@
   }
 
   // =========================================================
-  // 4. Tahun di footer
+  // 3. Tahun di footer
   // =========================================================
   const year = document.querySelector("[data-year]");
   if (year) year.textContent = String(new Date().getFullYear());

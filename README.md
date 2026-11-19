@@ -16,21 +16,22 @@ index.html                  semua isi halaman portofolio
 nexus-topup/                website demo Nexus TopUp (tugas kuliah)
 mealmate/                   website demo MealMate (tugas kuliah)
 assets/css/style.css        tampilan (warna dan ukuran huruf ada di bagian "Token")
-assets/js/main.js           menu HP, penanda menu aktif, tahun di footer
+assets/js/main.js           menu HP, penanda menu aktif, animasi, tahun di footer
 assets/img/                 foto, favicon, screenshot proyek
 ```
 
 ## Mengubah isi
 
-- Peragaan di bagian atas (chat masuk jadi rekap) ada di `<figure class="demo">` di `index.html`. Urutan munculnya diatur lewat `data-step` (1, 2, 3, ...), dan diputar oleh `assets/js/main.js`.
-- Proyek ada di bagian `<!-- PROYEK -->` di `index.html`. Proyek utama memakai `<article class="feature">`, proyek lain `<article class="mini">` (tinggal salin bloknya).
+- Urutan halaman: hero (judul dan foto), layanan, proyek, tentang, tanya jawab, kontak.
+- Proyek ada di bagian `<!-- PROYEK -->` di `index.html`. Dua proyek utama memakai `<article class="feature">` dan selalu tampil. Proyek lain memakai `<article class="mini">` di dalam `<details class="more">`, jadi baru muncul setelah tombol "Lihat selengkapnya" diklik (tinggal salin bloknya).
+- Alur kerja ada di pertanyaan pertama bagian Tanya jawab (`<ol class="faq__steps">`).
 - Screenshot proyek disimpan di `assets/img/` dengan ukuran sekitar 1600x1000.
 
 ## Animasi
 
 - Semua gerak ada di bagian "15. Gerak" di `assets/css/style.css` dan bagian "3. Animasi" di `assets/js/main.js`.
 - Judul dengan atribut `data-split` naik kata demi kata. Elemen yang muncul saat discroll ditentukan di daftar `groups` di `main.js`.
-- Efek yang terikat scroll (pita teks, bingkai foto proyek, garis cara kerja, garis progres) memakai CSS scroll-driven animations. Browser yang belum mendukung memakai cadangan di `main.js`.
+- Efek yang terikat scroll (bingkai foto proyek, hero memudar, garis progres) memakai CSS scroll-driven animations. Browser yang belum mendukung memakai cadangan di `main.js`.
 - Pengunjung yang memilih "kurangi gerakan" di HP/laptopnya melihat halaman diam dan utuh. Tanpa JavaScript, semua konten tetap tampil.
 
 ## Tombol WhatsApp melayang
