@@ -33,6 +33,11 @@ assets/img/                 foto, favicon, screenshot proyek
 - Efek yang terikat scroll (pita teks, bingkai foto proyek, garis cara kerja, garis progres) memakai CSS scroll-driven animations. Browser yang belum mendukung memakai cadangan di `main.js`.
 - Pengunjung yang memilih "kurangi gerakan" di HP/laptopnya melihat halaman diam dan utuh. Tanpa JavaScript, semua konten tetap tampil.
 
+## Tombol WhatsApp melayang
+
+- Ada di akhir `index.html` (`<a class="wa-float">`) dan bagian "16. Tombol WhatsApp melayang" di `style.css`.
+- Logo `assets/img/whatsapp-logo.png` berasal dari WhatsApp Brand Resources (Meta), hanya diperkecil. Sesuai aturan Meta, jangan ubah warna atau bentuknya.
+
 ## Mengaktifkan GitHub Pages
 
 Settings > Pages, pilih Source: Deploy from a branch, Branch: `main`, folder `/ (root)`, lalu Save. Tunggu 1 sampai 2 menit.
