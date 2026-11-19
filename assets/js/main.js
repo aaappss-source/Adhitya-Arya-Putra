@@ -124,7 +124,7 @@
       [".service", 80],
       [".freebie", 0],
       [".freebie__list li", 35],
-      [".feature__body > *", 120],
+      [".feature__info, .feature__actions, .feature__facts", 120],
       [".mini", 140],
       [".about .prose p", 110],
       [".faq__item", 60],

@@ -409,7 +409,7 @@ a {
 
 /* ---------- 8. Proyek ---------- */
 .feature + .feature {
-  margin-top: clamp(4.5rem, 9vw, 7rem);
+  margin-top: clamp(4rem, 8vw, 6rem);
 }
 
 .feature__media {
@@ -423,10 +423,7 @@ a {
   object-fit: cover;
 }
 
-.feature__body {
-  display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
-  gap: 2rem clamp(2rem, 6vw, 5rem);
+.feature__info {
   margin-top: 2rem;
 }
 
@@ -443,14 +440,43 @@ a {
 }
 
 .feature__desc {
-  margin: 1.25rem 0 1.5rem;
+  margin-top: 1.25rem;
   max-width: 56ch;
+}
+
+.feature__actions {
+  margin-top: 1.5rem;
 }
 
 .feature__hint {
   margin-top: 0.6rem;
   font-size: 0.875rem;
   color: var(--kabut);
+}
+
+.feature__facts {
+  margin-top: 2rem;
+}
+
+/* Laptop: foto lebih kecil di kiri dengan tombol tepat di bawahnya, teks di kanan.
+   Baris terakhir 1fr menampung sisa daftar fakta, jadi tombol tidak terdorong menjauh dari foto. */
+@media (min-width: 961px) {
+  .feature {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas:
+      "media   info"
+      "media   facts"
+      "actions facts";
+    column-gap: clamp(2.5rem, 5vw, 4.5rem);
+    align-items: start;
+  }
+
+  .feature__media { grid-area: media; }
+  .feature__info { grid-area: info; margin-top: 0; }
+  .feature__actions { grid-area: actions; margin-top: 1.25rem; }
+  .feature__facts { grid-area: facts; margin-top: 1.5rem; }
 }
 
 .facts > div {
@@ -730,9 +756,6 @@ a {
     max-width: 22rem;
   }
 
-  .feature__body {
-    grid-template-columns: minmax(0, 1fr);
-  }
 }
 
 /* Menu berubah jadi tombol */

@@ -23,7 +23,7 @@ assets/img/                 foto, favicon, screenshot proyek
 ## Mengubah isi
 
 - Urutan halaman: hero (judul dan foto), layanan, proyek, tentang, tanya jawab, kontak.
-- Proyek ada di bagian `<!-- PROYEK -->` di `index.html`. Dua proyek utama memakai `<article class="feature">` dan selalu tampil. Proyek lain memakai `<article class="mini">` di dalam `<details class="more">`, jadi baru muncul setelah tombol "Lihat selengkapnya" diklik (tinggal salin bloknya).
+- Proyek ada di bagian `<!-- PROYEK -->` di `index.html`. Dua proyek utama memakai `<article class="feature">` dan selalu tampil (di laptop: foto kiri dengan tombol di bawahnya, teks kanan; di HP bertumpuk). Proyek lain memakai `<article class="mini">` di dalam `<details class="more">`, jadi baru muncul setelah tombol "Lihat selengkapnya" diklik (tinggal salin bloknya).
 - Alur kerja ada di pertanyaan pertama bagian Tanya jawab (`<ol class="faq__steps">`).
 - Screenshot proyek disimpan di `assets/img/` dengan ukuran sekitar 1600x1000.
 
