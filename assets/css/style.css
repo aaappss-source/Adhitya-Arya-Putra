@@ -472,7 +472,7 @@ a {
     column-gap: clamp(2.5rem, 5vw, 4.5rem);
   }
 
-  .feature__media { grid-area: media; }
+  .feature__media { grid-area: media; align-self: start; }
   .feature__info { grid-area: info; align-self: center; margin-top: 0; }
   .feature__facts {
     grid-area: facts;
