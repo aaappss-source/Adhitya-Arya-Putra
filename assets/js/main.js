@@ -97,6 +97,48 @@
   }
 
   // =========================================================
+  // Scroll halus (Lenis)
+  // =========================================================
+  // Roda mouse dan trackpad tidak langsung melompat, tapi meluncur ke posisi tujuan:
+  // tiap frame halaman bergerak 10% dari sisa jarak (lerp 0.1), jadi terasa punya momentum.
+  // Di HP/tablet geser jari tetap bawaan perangkat (sudah halus). Untuk pengunjung yang memilih
+  // "kurangi gerakan", Lenis tidak dinyalakan dan halaman memakai scroll biasa.
+  let lenis = null;
+  if (motionOK && typeof window.Lenis === "function") {
+    lenis = new window.Lenis({
+      lerp: 0.1,                  // makin kecil makin lama meluncur, makin besar makin cepat berhenti
+      wheelMultiplier: 1,         // jarak per putaran roda, sama seperti bawaan
+      smoothWheel: true,
+      autoRaf: true,              // Lenis menjalankan sendiri loop animasinya
+      stopInertiaOnNavigate: true
+    });
+  }
+
+  // Klik menu (#layanan, #proyek, ...): meluncur halus ke section, berhenti tepat di bawah header,
+  // lalu alamat (#...) diperbarui dan fokus keyboard dipindah ke section itu.
+  // Link "Langsung ke konten" sengaja dibiarkan bawaan supaya pengguna keyboard langsung sampai.
+  if (lenis) {
+    document.addEventListener("click", function (event) {
+      if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      const link = event.target.closest('a[href^="#"]');
+      if (!link || link.classList.contains("skip-link")) return;
+      const hash = link.getAttribute("href");
+      const target = hash.length > 1 ? document.getElementById(decodeURIComponent(hash.slice(1))) : null;
+      if (!target) return;
+      event.preventDefault();
+      // Lenis sudah memperhitungkan scroll-padding-top di CSS (tinggi header + 1rem), jadi tanpa offset tambahan
+      lenis.scrollTo(target.id === "top" ? 0 : target, {
+        duration: 1.1,
+        onComplete: function () {
+          if (location.hash !== hash) history.pushState(null, "", hash);
+          if (!target.hasAttribute("tabindex")) target.setAttribute("tabindex", "-1");
+          target.focus({ preventScroll: true });
+        }
+      });
+    });
+  }
+
+  // =========================================================
   // 2. Animasi
   // =========================================================
   if (motionOK && "IntersectionObserver" in window) {

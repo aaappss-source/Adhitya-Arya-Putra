@@ -32,6 +32,7 @@ assets/img/                 foto, favicon, screenshot proyek
 - Semua gerak ada di bagian "15. Gerak" di `assets/css/style.css` dan bagian "3. Animasi" di `assets/js/main.js`.
 - Judul dengan atribut `data-split` naik kata demi kata. Elemen yang muncul saat discroll ditentukan di daftar `groups` di `main.js`.
 - Efek yang terikat scroll (bingkai foto proyek, hero memudar, garis progres) memakai CSS scroll-driven animations. Browser yang belum mendukung memakai cadangan di `main.js`.
+- Scroll halus memakai Lenis 1.3.27 (MIT) yang disimpan di `assets/vendor/lenis/` (tanpa CDN). Pengaturannya di bagian "Scroll halus (Lenis)" di `main.js`: `lerp` mengatur seberapa lama halaman meluncur (default 0.1), `duration` di klik menu mengatur lama perjalanan ke section. Di HP/tablet geser jari tetap bawaan perangkat.
 - Pengunjung yang memilih "kurangi gerakan" di HP/laptopnya melihat halaman diam dan utuh. Tanpa JavaScript, semua konten tetap tampil.
 
 ## Tombol WhatsApp melayang
